@@ -1,5 +1,5 @@
 ## set working directory ##
-setwd("/Users/uqbolase/Documents/github/")
+#setwd("/Users/uqbolase/Documents/github/")
 
 ## load required packages ###
 pkgs <- c("data.table", "dplyr", "nnls", "quadprog")
