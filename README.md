@@ -276,10 +276,10 @@ simulations/
 ```
 These reproduce:
 - statistical power
-- Impact of population stratification with drift and extreme model
-- Deconvolution approach
-- Impact of missing reference during deconvolution
-- Impact of attenuation bias in the reference during deconvolution
+- impact of population stratification with drift and extreme model
+- deconvolution approach
+- impact of missing reference during deconvolution
+- impact of attenuation bias in the reference during deconvolution
 
 
 ## 🛠 Using your own data
