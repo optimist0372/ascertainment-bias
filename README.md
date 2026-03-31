@@ -10,6 +10,8 @@ The tutorial dataset used for illustration is available on Zenodo:
 
 👉 https://doi.org/10.5281/zenodo.19340785
 
+After downloading the dataset from Zenodo, extract it and copy all files into the `data/` folder of this repository, ensuring that the directory structure remains unchanged.
+
 This dataset is provided for reproducibility and demonstration purposes.  
 All underlying data sources are publicly available (see manuscript for details).
 
@@ -40,7 +42,7 @@ source("scripts/estimate_asc_with_census_rep.R")
 │   ├── Population_stratification_drift_model.R
 │   ├── Population_stratification_extreme_model.R
 │   └── Power_theta.R
-├── data/ ##get this using the Zenodo link
+├── data/ ##get this folder using the Zenodo link
 │   ├── beta/
 │   ├── independent_snps/
 │   ├── sample_with_census_rep/
