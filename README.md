@@ -37,6 +37,16 @@ install.packages(c(
 These packages are required for data processing, visualization, and ancestry deconvolution.
 Make sure all packages are installed without errors before running the scripts.
 
+## 💻 Execution environment
+
+All scripts are designed to run in a standard R environment on a local machine.
+
+- No high-performance computing (HPC) resources are required for the tutorial dataset  
+- The provided example can be run on a typical laptop or desktop  
+- For larger datasets, users may optionally run the scripts on an HPC system  
+
+The code does not rely on any HPC-specific configuration.
+
 ## 🚀 Quick start
 ```r
 source("scripts/estimate_asc_with_census_rep.R")
