@@ -124,31 +124,48 @@ This framework provides two complementary approaches for detecting ascertainment
 
 ## 🧬 Data conventions
 
-All input files follow consistent formatting.
+All input files follow a consistent and harmonized format.
 
 ### Allele-frequency files
 
-Must contain:
+Must contain the following columns:
 
 - `SNP`: SNP identifier  
 - `CHR`: chromosome  
 - `REF`: reference allele  
 - `ALT`: alternate allele  
+- Frequency columns: allele frequency of `ALT` for each cohort or population  
 
 ### Effect-size files
 
-- Effect sizes (`BETA`) are aligned to `ALT`
+Must contain:
 
-### Alignment assumption
+- `SNP`: SNP identifier  
+- `A1`: effect allele  
+- `A2`: non-effect allele  
+- `BETA`: effect size corresponding to `A1`  
 
-- `ALT` corresponds to the trait-increasing allele  
-- Allele frequencies are aligned to the same allele as effect sizes  
+### Allele alignment
+
+All data are harmonized to ensure consistency between effect sizes and allele frequencies:
+
+- Effect sizes (`BETA`) are aligned to the effect allele (`A1`)  
+- Allele frequencies are expressed with respect to the `ALT` allele  
+- The pipeline enforces:  
+  **`ALT` ≡ `A1` (effect allele / trait-increasing allele)**  
+
+This ensures that:
+
+- `BETA` and allele frequencies refer to the same allele  
+- No strand or allele-flip inconsistencies remain  
 
 ### Pre-processing (already applied in tutorial data)
 
-- MAF filtering  
-- SNP matching  
-- Harmonization of allele coding  
+The provided dataset has been pre-processed to ensure compatibility:
+
+- Minor allele frequency (MAF) filtering  
+- SNP matching across datasets  
+- Harmonization of allele coding between frequency and effect-size files  
 
 ---
 
