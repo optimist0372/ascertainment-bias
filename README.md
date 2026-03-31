@@ -205,8 +205,8 @@ cohort_info <- data.frame(
 )
 ```
 #### Additional inputs
-- ancestry weights (Step 1 output)
-- LD panel mapping
+- ancestry weights (Step 1 output: ancestry_population_weights.tsv)
+- LD panel mapping (Step 1 output: ancestry_ld_panel_info.tsv)
 - beta files
 - allele-frequency files
 
