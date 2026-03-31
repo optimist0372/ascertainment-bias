@@ -14,7 +14,20 @@ After downloading and extracting the dataset, ensure that the `data/` directory 
 
 The expected layout is:
 
+repo/
+├── data/
+│   ├── beta/
+│   ├── independent_snps/
+│   ├── sample_with_census_rep/
+│   └── sample_with_1KGP/
 
+
+repo/
+├── data/
+│ ├── beta/
+│ ├── independent_snps/
+│ ├── sample_with_census_rep/
+│ └── sample_with_1KGP/
 
 Scripts will fail if the directory structure is altered.
 
