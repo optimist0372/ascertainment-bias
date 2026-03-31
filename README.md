@@ -143,7 +143,25 @@ Must contain:
 - `SNP`: SNP identifier  
 - `A1`: effect allele  
 - `A2`: non-effect allele  
-- `BETA`: effect size corresponding to `A1`  
+- `BETA`: effect size corresponding to `A1`
+
+#### File naming convention
+
+- For simplicity, beta file names must follow the pattern:
+
+  `<Trait>_<Study>_<Year>`
+
+  For example:
+
+  `Height_Yengo_et_al_2022`
+
+- The trait name is inferred from the file name as the substring preceding the first underscore.
+
+- File names must match those in `data/independent_snps/` for correct SNP matching.
+
+- Trait names should not contain underscores.
+ For example: Adult_Height_Yengo...
+         use: AdultHeight_Yengo... instead
 
 ### Allele alignment
 
