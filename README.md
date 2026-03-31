@@ -161,8 +161,24 @@ Must contain:
 
 - Trait names should not contain underscores.
  For example: Adult_Height_Yengo...
-         use: AdultHeight_Yengo... instead
+ use this instead: AdultHeight_Yengo... 
 
+### Independent SNP sets
+
+The SNPs provided in `data/independent_snps/` represent approximately independent variants selected from the corresponding GWAS summary statistics.
+
+These were obtained using LD clumping implemented in PLINK with the following parameters:
+
+- LD threshold: $r^2 < 0.01$  
+- Window size: 1 Mb  
+- Association threshold: $P < 5 \times 10^{-3}$  
+
+This procedure follows the specification described in the main manuscript.
+
+Users applying the framework to their own data should construct independent SNP sets using comparable criteria.
+
+- File names in `independent_snps/` must match those in `data/beta/`.
+  
 ### Allele alignment
 
 All data are harmonized to ensure consistency between effect sizes and allele frequencies:
