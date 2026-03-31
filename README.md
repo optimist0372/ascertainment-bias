@@ -106,6 +106,14 @@ This framework provides two complementary approaches for detecting ascertainment
 - Minimizes bias from population stratification
 - Recommended when representative reference data are available
 
+> ⚠️ **Note on reference data**
+>
+> The reference allele frequencies used for SweGen and TWB in this example are not true census-representative estimates.
+>
+> They are included for illustration and practical demonstration only.
+>
+> For real analyses, users should use appropriately matched, census-representative reference data where available.
+
 ### 2. Ancestry-deconvolution approach
 
 - Estimates ancestry loadings from the 1000 Genomes Project (1KGP)
