@@ -19,9 +19,10 @@ All underlying data sources are publicly available (see manuscript for details).
 
 ## 🚀 Quick start
 ```r
+source("scripts/estimate_asc_with_census_rep.R")
 source("scripts/get_ancestry_loadings.R")
 source("scripts/estimate_asc_with_1KGP.R")
-source("scripts/estimate_asc_with_census_rep.R")
+
 ---
 
 ## 📁 Repository structure
