@@ -20,7 +20,7 @@ repo/
 │   ├── independent_snps/
 │   ├── sample_with_census_rep/
 │   └── sample_with_1KGP/
-
+```
 
 Scripts will fail if the directory structure is altered.
 
