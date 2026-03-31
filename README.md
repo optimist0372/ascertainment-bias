@@ -201,9 +201,9 @@ ld_ref_info <- data.frame(
 
 For each trait–cohort pair:
 
-- theta1: standardized PGS difference
-- theta2: regression-based estimator
-- I2: intercept (diagnostic)
+- $\theta_1$: mean PGS difference estimator  
+- $\theta_2$: regression-based estimator (more robust)  
+- $I_2$: intercept capturing systematic deviation (similar to LD score intercept)
 - standard errors and p-values
 - M, M_prior
 
@@ -258,16 +258,15 @@ cohort_info <- data.frame(
 #### Output
 Same structure as census-based approach:
 
-- theta1, theta2, I2
+- $\theta_1$:, $\theta_2$, $I_2$
 - standard errors
 - p-values
 - SNP counts
 
 ### 📊 Interpretation of estimators
-- theta1: mean PGS difference estimator
-- theta2: regression-based estimator (more robust)
-- I2: captures systematic deviation not explained by model
-
+- $\theta_1$: mean PGS difference estimator  
+- $\theta_2$: regression-based estimator (more robust)  
+- $I_2$: intercept capturing systematic deviation (similar to LD score intercept)
   
 ## 🧪 Simulations
 
