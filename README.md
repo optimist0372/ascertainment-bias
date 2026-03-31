@@ -17,6 +17,26 @@ All underlying data sources are publicly available (see manuscript for details).
 
 ---
 
+## 📦 Required R packages
+
+Before running the scripts, install and load the required R packages.
+
+### Install packages (run once)
+
+```r
+install.packages(c(
+  "data.table",
+  "ggplot2",
+  "pheatmap",
+  "reshape2",
+  "nnls"
+))
+```
+
+### Notes
+These packages are required for data processing, visualization, and ancestry deconvolution.
+Make sure all packages are installed without errors before running the scripts.
+
 ## 🚀 Quick start
 ```r
 source("scripts/estimate_asc_with_census_rep.R")
