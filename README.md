@@ -173,7 +173,7 @@ The provided dataset has been pre-processed to ensure compatibility:
 
 To produce valid estimates:
 
-- At least **10 SNPs** must remain after filtering  
+- At least **10 SNPs** must remain after filtering for independent snps
 - Reported as `M` in output  
 
 ---
