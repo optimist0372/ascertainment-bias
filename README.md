@@ -10,7 +10,18 @@ The tutorial dataset used for illustration is available on Zenodo:
 
 👉 https://doi.org/10.5281/zenodo.19340785
 
-After downloading the dataset from Zenodo, extract it and copy all files into the `data/` folder of this repository, ensuring that the directory structure remains unchanged.
+After downloading and extracting the dataset, ensure that the `data/` directory is placed directly in the root of this repository without modifying its internal structure.
+
+The expected layout is:
+
+repo/
+├── data/
+│   ├── beta/
+│   ├── independent_snps/
+│   ├── sample_with_census_rep/
+│   └── sample_with_1KGP/
+
+Scripts will fail if the directory structure is altered.
 
 This dataset is provided for reproducibility and demonstration purposes.  
 All underlying data sources are publicly available (see manuscript for details).
