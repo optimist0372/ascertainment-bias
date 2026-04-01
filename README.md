@@ -102,7 +102,7 @@ This framework provides two complementary approaches for detecting ascertainment
 
 > ⚠️ **Note on reference data**
 >
-> The reference allele frequencies used for SweGen and TWB in this repository are not true census-representative estimates.
+> The reference allele frequencies used in this tutorial are not true census-representative estimates.
 >
 > They are included for illustration and practical demonstration only.
 >
