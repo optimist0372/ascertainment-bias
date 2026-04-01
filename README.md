@@ -10,7 +10,7 @@ The tutorial dataset used for illustration is available on Zenodo:
 
 👉 https://doi.org/10.5281/zenodo.19340785
 
-After downloading and extracting the dataset, ensure that the `data/` directory is placed directly in the root of this repository without modifying its internal structure.
+After downloading and extracting the dataset, place the data/ directory in the root of this repository without modifying its internal structure.
 
 The expected layout is:
 ```
@@ -21,19 +21,16 @@ repo/
 │   ├── sample_with_census_rep/
 │   └── sample_with_1KGP/
 ```
-
-Scripts will fail if the directory structure is altered.
+Scripts assume this directory structure.
 
 This dataset is provided for reproducibility and demonstration purposes.  
 All underlying data sources are publicly available (see manuscript for details).
 
 ---
 
-## 📦 Required R packages
+## 📦 Requirements
 
-Before running the scripts, install and load the required R packages.
-
-### Install packages (run once)
+Install required R packages:
 
 ```r
 install.packages(c(
@@ -45,21 +42,16 @@ install.packages(c(
 ))
 ```
 
-### Notes
-These packages are required for data processing, visualization, and ancestry deconvolution.
-Make sure all packages are installed without errors before running the scripts.
-
 ## 💻 Execution environment
 
-All scripts are designed to run in a standard R environment on a local machine.
+All scripts are designed to run in a standard R environment.
 
 - No high-performance computing (HPC) resources are required for the tutorial dataset  
-- The provided example can be run on a typical laptop or desktop  
-- For larger datasets, users may optionally run the scripts on an HPC system  
-
-The code does not rely on any HPC-specific configuration.
+- The example runs on a typical laptop or desktop 
+- Larger datasets may benefit from HPC environments  
 
 ## 🚀 Quick start
+
 ```r
 source("scripts/estimate_asc_with_census_rep.R")
 source("scripts/get_ancestry_loadings.R")
@@ -90,7 +82,7 @@ source("scripts/estimate_asc_with_1KGP.R")
 │   ├── independent_snps/
 │   ├── sample_with_census_rep/
 │   └── sample_with_1KGP/
-└── results/
+└── results/ #outputs
     ├── result_anc_loadings/
     ├── result_cen_rep/
     └── result_1kgp_rep/
@@ -108,11 +100,11 @@ This framework provides two complementary approaches for detecting ascertainment
 
 > ⚠️ **Note on reference data**
 >
-> The reference allele frequencies used for SweGen and TWB in this example are not true census-representative estimates.
+> The reference allele frequencies used for SweGen and TWB in this repository are not true census-representative estimates.
 >
 > They are included for illustration and practical demonstration only.
 >
-> For real analyses, users should use appropriately matched, census-representative reference data where available.
+> For real analyses, appropriately matched census-representative reference data should be used.
 
 ### 2. Ancestry-deconvolution approach
 
@@ -128,57 +120,51 @@ All input files follow a consistent and harmonized format.
 
 ### Allele-frequency files
 
-Must contain the following columns:
+Required columns:
 
 - `SNP`: SNP identifier  
 - `CHR`: chromosome  
 - `REF`: reference allele  
 - `ALT`: alternate allele  
-- Frequency columns: allele frequency of `ALT` for each cohort or population  
+- Frequency columns: allele frequency of `ALT` for each cohort 
 
 ### Effect-size files
 
-Must contain:
+Required columns:
 
 - `SNP`: SNP identifier  
 - `A1`: effect allele  
 - `A2`: non-effect allele  
 - `BETA`: effect size corresponding to `A1`
 
-#### File naming convention
+#### File naming
 
-- For simplicity, beta file names must follow the pattern:
+- Beta file names must follow:
 
   `<Trait>_<Study>_<Year>`
 
-  For example:
+Example:
 
   `Height_Yengo_et_al_2022`
 
 - The trait name is inferred from the file name as the substring preceding the first underscore.
+- Trait names should not contain underscores.
+
+  For example:
+  - ❌ `Adult_Height_Yengo...`
+  - ✅ `AdultHeight_Yengo...`
 
 - File names must match those in `data/independent_snps/` for correct SNP matching.
 
-- Trait names should not contain underscores.
- For example:
-
-Adult_Height_Yengo...
-
-use this instead: AdultHeight_Yengo... 
-
 ### Independent SNP sets
 
-The SNPs provided in `data/independent_snps/` represent approximately independent variants selected from the corresponding GWAS summary statistics.
-
-These were obtained using LD clumping implemented in PLINK with the following parameters:
+The files in `data/independent_snps/` contain approximately independent variants selected from GWAS summary statistics using LD clumping (PLINK):
 
 - LD threshold: $r^2 < 0.01$  
 - Window size: 1 Mb  
 - Association threshold: $P < 5 \times 10^{-3}$  
 
-This procedure follows the specification described in the main manuscript.
-
-Users applying the framework to their own data should construct independent SNP sets using comparable criteria.
+This follows the specification described in the main manuscript.
 
 - File names in `independent_snps/` must match those in `data/beta/`.
 
@@ -188,11 +174,10 @@ Each file in `data/independent_snps/` contains a single column:
 
 - `SNP`: list of independent SNP identifiers
 
-No additional columns are required.
+SNP identifiers must match those in the corresponding beta and frequency files.
+No additional columns are expected.
   
 ### Allele alignment
-
-All data are harmonized to ensure consistency between effect sizes and allele frequencies:
 
 - Effect sizes (`BETA`) are aligned to the effect allele (`A1`)  
 - Allele frequencies are expressed with respect to the `ALT` allele  
@@ -202,7 +187,7 @@ All data are harmonized to ensure consistency between effect sizes and allele fr
 This ensures that:
 
 - `BETA` and allele frequencies refer to the same allele  
-- No strand or allele-flip inconsistencies remain  
+
 
 ### Pre-processing (already applied in tutorial data)
 
@@ -232,18 +217,18 @@ source("scripts/estimate_asc_with_census_rep.R")
 ```
 
 ### Required inputs:
-#### Allele-frequency columns
-Each cohort must have:
+- Allele-frequency columns:
+ 
+Each cohort must provide:
 
-- [cohort]_ps: study sample frequency
-- [cohort]_pr: reference frequency
+- `[cohort]_ps`: study allele frequency  
+- `[cohort]_pr`: reference allele frequency  
 
-Example:
+**Example (SweGen):**
 
-- SweGen_ps, SweGen_pr
-- TWB_ps, TWB_pr
+`SNP`, `CHR`, `REF`, `ALT`, `SweGen_ps`, `SweGen_pr`
 
-#### Cohort metadata
+- Cohort metadata
 ```r
 
 cohort_info <- data.frame(
@@ -252,12 +237,11 @@ cohort_info <- data.frame(
   Nr = c(1000, 100000),
   stringsAsFactors = FALSE
 )
+ #Ns: study sample size
+ #Nr: reference sample size
 ```
 
-- Ns: study sample size
-- Nr: reference sample size
-
-#### LD reference panel
+- LD reference panel
 ```r
 
 ld_ref_info <- data.frame(
