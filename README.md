@@ -229,7 +229,7 @@ Each cohort must provide:
    **Example (SweGen):**
    
     `SNP`, `CHR`, `REF`, `ALT`, `SweGen_ps`, `SweGen_pr`
-    `SNP`, `CHR`, `REF`, `ALT`, `SweGen`, `ACB` , `ASW` , ...,`YRI` 
+    
 - Cohort metadata
 ```r
 
