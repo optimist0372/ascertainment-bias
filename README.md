@@ -254,8 +254,8 @@ ld_ref_info <- data.frame(
 )
 
 ```
-> ⚠️ Note: LD reference panel used here were predefined. 
-> How to chose the appropriate LD panel to used are shown in the deconvolution approach.
+> ⚠️ Note: LD reference panels used here are predefined.
+> Guidance on selecting appropriate LD panels is provided in the ancestry-deconvolution approach.
 
 #### Output
 
