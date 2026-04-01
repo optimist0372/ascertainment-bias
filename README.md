@@ -226,9 +226,9 @@ Each cohort must provide:
   - `[cohort]_ps`: study allele frequency  
   - `[cohort]_pr`: reference allele frequency  
 
-**Example (SweGen):**
+   **Example (SweGen):**
 
-`SNP`, `CHR`, `REF`, `ALT`, `SweGen_ps`, `SweGen_pr`
+    `SNP`, `CHR`, `REF`, `ALT`, `SweGen_ps`, `SweGen_pr`
 
 - Cohort metadata
 ```r
@@ -283,9 +283,9 @@ source("scripts/get_ancestry_loadings.R")
   - Cohort allele frequency (e.g. `SweGen`)
   - 26 populations allele frequencies from 1KGP (`ACB` , `ASW` , ..., `YRI`)
 
- **Example (SweGen):**
+     **Example (SweGen):**
 
-`SNP`, `CHR`, `REF`, `ALT`, `SweGen`, `ACB` , `ASW` , ...,`YRI` 
+    `SNP`, `CHR`, `REF`, `ALT`, `SweGen`, `ACB` , `ASW` , ...,`YRI` 
 
 - Cohort 
 ```r
