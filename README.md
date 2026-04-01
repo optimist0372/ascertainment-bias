@@ -161,6 +161,7 @@ Must contain:
 
 - Trait names should not contain underscores.
  For example: Adult_Height_Yengo...
+
  use this instead: AdultHeight_Yengo... 
 
 ### Independent SNP sets
