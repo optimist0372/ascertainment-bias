@@ -378,5 +378,4 @@ If you use this repository or dataset, please cite:
 
 Using summary data to detect and quantify ascertainment in biobanks
 
-Zenodo dataset:
-https://doi.org/10.5281/zenodo.19340785
+
