@@ -160,9 +160,11 @@ Must contain:
 - File names must match those in `data/independent_snps/` for correct SNP matching.
 
 - Trait names should not contain underscores.
- For example: Adult_Height_Yengo...
+ For example:
 
- use this instead: AdultHeight_Yengo... 
+Adult_Height_Yengo...
+
+use this instead: AdultHeight_Yengo... 
 
 ### Independent SNP sets
 
