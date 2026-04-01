@@ -178,6 +178,14 @@ This procedure follows the specification described in the main manuscript.
 Users applying the framework to their own data should construct independent SNP sets using comparable criteria.
 
 - File names in `independent_snps/` must match those in `data/beta/`.
+
+#### File format
+
+Each file in `data/independent_snps/` contains a single column:
+
+- `SNP`: list of independent SNP identifiers
+
+No additional columns are required.
   
 ### Allele alignment
 
