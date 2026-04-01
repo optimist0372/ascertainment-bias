@@ -88,6 +88,8 @@ source("scripts/estimate_asc_with_1KGP.R")
     └── result_1kgp_rep/
 
 ```
+> ⚠️ results directories are generated automatically at the repository root when scripts are executed.
+
 ## 📊 Overview
 
 This framework provides two complementary approaches for detecting ascertainment bias:
