@@ -60,6 +60,7 @@ source("scripts/estimate_asc_with_1KGP.R")
 ---
 
 ## 📁 Repository structure
+```
 .
 ├── README.md
 ├── LICENSE
@@ -85,7 +86,7 @@ source("scripts/estimate_asc_with_1KGP.R")
 ├── result_cen_rep/
 ├── result_anc_loadings/
 └── result_1kgp_rep/
-
+```
 > ⚠️ Output directories (`result_*`) are generated automatically at the repository root when scripts are executed.
 
 
