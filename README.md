@@ -221,8 +221,8 @@ source("scripts/estimate_asc_with_census_rep.R")
  
 Each cohort must provide:
 
-- `[cohort]_ps`: study allele frequency  
-- `[cohort]_pr`: reference allele frequency  
+  - `[cohort]_ps`: study allele frequency  
+  - `[cohort]_pr`: reference allele frequency  
 
 **Example (SweGen):**
 
@@ -237,9 +237,10 @@ cohort_info <- data.frame(
   Nr = c(1000, 100000),
   stringsAsFactors = FALSE
 )
- #Ns: study sample size
- #Nr: reference sample size
 ```
+ - `Ns`: study sample size
+ - `Nr`: reference sample size
+
 
 - LD reference panel
 ```r
@@ -249,7 +250,10 @@ ld_ref_info <- data.frame(
   ld_ref = c("EUR", "EAS"),
   stringsAsFactors = FALSE
 )
+
 ```
+> ⚠️ Note: LD reference panel used here were predefined. 
+> How to chose the appropriate LD panel to used are shown in the deconvolution approach.
 
 #### Output
 
@@ -259,7 +263,7 @@ For each trait–cohort pair:
 - $\theta_2$: regression-based estimator (more robust)  
 - $I_2$: intercept capturing systematic deviation (similar to LD score intercept)
 - standard errors and p-values
-- M, M_prior
+- SNP counts(`M`, `M_prior`)
 
 
 
@@ -273,23 +277,34 @@ source("scripts/get_ancestry_loadings.R")
 ```
 
 #### Input
-- cohort allele frequencies
-- 26 ancestral population allele frequencies from 1KGP
-  
+- Allele-frequency must contain:
+  - Cohort allele frequency (e.g. `SweGen`)
+  - 26 populations allele frequencies from 1KGP (`ACB` , `ASW` , ..., `YRI`)
+
+ **Example (SweGen):**
+
+`SNP`, `CHR`, `REF`, `ALT`, `SweGen`, `ACB` , `ASW` , ...,`YRI` 
+
+- Cohort 
+```r
+cohort_names <- c("SweGen", "TWB")
+```
+> ⚠️ Note: ancestry weights are estimated using ~100,000 randomly sampled SNPs.
+
 #### Outputs (in result_anc_loadings/)
-- ancestry_population_weights.tsv
-- ancestry_superpop_weights.tsv
-- ancestry_dominant.tsv
-- ancestry_ld_panel_info.tsv
+Files:
+  - `ancestry_population_weights.tsv`: population-level weights (1KGP)
+  - `ancestry_superpop_weights.tsv` : superpopulation weights (`AFR`, `AMR` , `EAS` , `EUR` , `SAS`)
+  - ancestry_dominant.tsv: dominant ancestry per cohort
+  - ancestry_ld_panel_info.tsv: selected LD reference panel
+    
+> ⚠️ Note: Dominant ancestry defined as ≥90% contribution.
+> Mixed-ancestry cohorts that do not meet the ≥90% dominance threshold may require combined LD reference panels.
 
-#### Plots
-- population heatmap
-- super-population bar plot
-- dominant ancestry plot
-
-#### Interpretation
-- Dominant ancestry defined as ≥90% contribution
-- Mixed ancestry cohorts use combined LD panels
+Plots:
+  - population heatmap
+  - super-population bar plot
+  - dominant ancestry plot
 
 ### Step 2: Estimate ascertainment (1KGP reference)
 ```r
@@ -306,8 +321,9 @@ cohort_info <- data.frame(
 #### Additional inputs
 - ancestry weights (Step 1 output: ancestry_population_weights.tsv)
 - LD panel mapping (Step 1 output: ancestry_ld_panel_info.tsv)
+- allele frequency files (same as step 1)
 - beta files
-- allele-frequency files
+- independent snps files
 
 #### Output
 Same structure as census-based approach:
@@ -315,7 +331,7 @@ Same structure as census-based approach:
 - $\theta_1$:, $\theta_2$, $I_2$
 - standard errors
 - p-values
-- SNP counts
+- SNP counts 
 
 ### 📊 Interpretation of estimators
 - $\theta_1$: mean PGS difference estimator  
@@ -338,13 +354,21 @@ These reproduce:
 
 ## 🛠 Using your own data
 
-To apply this framework:
+To apply this framework to external datasets:
 
-- match input file structure
-- align alleles consistently
-- ensure effect sizes correspond to trait-increasing allele frequency 
-- provide correct sample sizes
-- use consistent cohort naming
+- Ensure input files follow the required structure (see *Data conventions*)
+- Align alleles consistently across all files:
+  - Effect sizes (`BETA`) must correspond to the same allele as allele frequencies (ALT)
+- Verify that allele frequencies and effect sizes are harmonized (no strand or allele mismatches)
+- Provide accurate sample sizes:
+  - `Ns`: study sample size  
+  - `Nr`: reference sample size (if applicable)
+- Use consistent cohort naming across all inputs (frequency files, metadata, LD panel mapping)
+- Ensure SNP overlap between:
+  - effect-size files  
+  - allele-frequency files  
+  - independent SNP sets
+
 
 ## 📄 Citation
 
