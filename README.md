@@ -69,15 +69,15 @@ source("scripts/estimate_asc_with_1KGP.R")
 │   ├── estimate_asc_with_census_rep.R
 │   └── estimate_asc_with_1KGP.R
 ├── simulations/
-│   ├── Deconvolution_drift_model.R
-│   ├── Deconvolution_extreme_model.R
-│   ├── Impact_of_attenuation_bias_drift_model.R
-│   ├── Impact_of_attenuation_bias_extreme_model.R
-│   ├── Impact_of_missing_ref_drift_model.R
-│   ├── Impact_of_missing_ref_extreme_model.R
-│   ├── Population_stratification_drift_model.R
-│   ├── Population_stratification_extreme_model.R
-│   └── Power_theta.R
+│   ├── deconvolution_drift_model.R
+│   ├── deconvolution_extreme_model.R
+│   ├── impact_of_attenuation_bias_drift_model.R
+│   ├── impact_of_attenuation_bias_extreme_model.R
+│   ├── impact_of_missing_ref_drift_model.R
+│   ├── impact_of_missing_ref_extreme_model.R
+│   ├── population_stratification_drift_model.R
+│   ├── population_stratification_extreme_model.R
+│   └── power_theta.R
 ├── data/
 │   ├── beta/
 │   ├── independent_snps/
