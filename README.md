@@ -56,7 +56,7 @@ All scripts are designed to run in a standard R environment.
 source("scripts/estimate_asc_with_census_rep.R")
 source("scripts/get_ancestry_loadings.R")
 source("scripts/estimate_asc_with_1KGP.R")
-
+```
 ---
 
 ## 📁 Repository structure
@@ -77,18 +77,17 @@ source("scripts/estimate_asc_with_1KGP.R")
 │   ├── Population_stratification_drift_model.R
 │   ├── Population_stratification_extreme_model.R
 │   └── Power_theta.R
-├── data/ ##get this folder using the Zenodo link
+├── data/
 │   ├── beta/
 │   ├── independent_snps/
 │   ├── sample_with_census_rep/
 │   └── sample_with_1KGP/
-└── results/ #outputs
-    ├── result_anc_loadings/
-    ├── result_cen_rep/
-    └── result_1kgp_rep/
+├── result_cen_rep/
+├── result_anc_loadings/
+└── result_1kgp_rep/
 
-```
-> ⚠️ results directories are generated automatically at the repository root when scripts are executed.
+> ⚠️ Output directories (`result_*`) are generated automatically at the repository root when scripts are executed.
+
 
 ## 📊 Overview
 
