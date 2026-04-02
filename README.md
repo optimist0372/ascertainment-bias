@@ -154,7 +154,7 @@ Example:
 
   For example:
   - ❌ `Adult_Height_Yengo...`
-  - ✅ `AdultHeight_Yengo...`
+  - ✅ `AdultHeight_Yengo...` or ✅ `Adult-Height_Yengo...
 
 - File names must match those in `data/independent_snps/` for correct SNP matching.
 
