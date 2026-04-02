@@ -297,8 +297,8 @@ cohort_names <- c("SweGen", "TWB")
 Files:
   - `ancestry_population_weights.tsv`: population-level weights (1KGP)
   - `ancestry_superpop_weights.tsv` : superpopulation weights (`AFR`, `AMR` , `EAS` , `EUR` , `SAS`)
-  - ancestry_dominant.tsv: dominant ancestry per cohort
-  - ancestry_ld_panel_info.tsv: selected LD reference panel
+  - `ancestry_dominant.tsv`: dominant ancestry per cohort
+  - `ancestry_ld_panel_info.tsv`: selected LD reference panel
     
 > ⚠️ Note: Dominant ancestry defined as ≥90% contribution.
 > Mixed-ancestry cohorts that do not meet the ≥90% dominance threshold may require combined LD reference panels.
